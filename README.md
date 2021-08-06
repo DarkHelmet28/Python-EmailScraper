@@ -1,2 +1,3 @@
 # Python-EmailScraper
- An Emal Scraper written in Python
+
+An Emal Scraper written in Python
