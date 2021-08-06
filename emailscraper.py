@@ -14,7 +14,7 @@ def get_arguments():
     """Get arguments from the command line"""
     parser = arg.ArgumentParser()
     parser.add_argument('-t', '--target', dest='target', help='The target URL')
-    parser.add_argument('-l', '--limit', dest='limit', help='The Maximum number of URL to scan')
+    parser.add_argument('-l', '--limit', dest='limit', help='The Maximum number of URL to scan', default=100)
     options = parser.parse_args()
     if not options.target:
         options = None
@@ -71,7 +71,7 @@ def check_mail(response):
     emails.update(new_emails)
 
 def print_mail():
-    print(f'[+] Found {len(emails)} mails:')
+    print(f'\n[+] Found {len(emails)} mails:')
     for mail in emails:
         print(mail)
 
@@ -85,6 +85,7 @@ if __name__ == '__main__':
     else:
         target_URL = input('[>] Enter Target URL To Scan: ')
         max_limit = int(input('[>] Enter the Number of maximum scan: '))
+        print('\n')
         mail_scraper(target_URL, max_limit)
         
 
